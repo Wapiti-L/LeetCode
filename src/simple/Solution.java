@@ -198,11 +198,20 @@ public class Solution {
         return  left;
     }
 
+    //最后一个单词的长度
+    public static int lengthOfLastWord(String s){
+        if (s == null){
+            return 0;
+        }
+        int length = 0;
+        String[] arr = s.split(" ");
+        return length = (arr.length != 0) ? arr[arr.length - 1].length():0;
+    }
 
 
 
     public static void main(String[] args) {
-        String strs = "()[[]{}}";
-        System.out.println(isValid(strs));
+        String strs = "hello world";
+        System.out.println(lengthOfLastWord(strs));
     }
 }
