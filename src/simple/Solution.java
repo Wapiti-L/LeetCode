@@ -208,10 +208,30 @@ public class Solution {
         return length = (arr.length != 0) ? arr[arr.length - 1].length():0;
     }
 
+    //加一
+    public static int[] plusOne(int[] digits){
+        int i = digits.length - 1;
+        while (digits[i] + 1 == 10 && i != 0){
+            digits[i] = 0;
+            i --;
+
+        }
+        if (i == 0 && digits[i] == 9){
+            digits = new int[digits.length + 1];
+            digits[i] =1;
+            digits[digits.length - 1] = 0;
+            return digits;
+        }
+        digits[i] += 1;
+        return digits;
+
+
+    }
 
 
     public static void main(String[] args) {
-        String strs = "hello world";
-        System.out.println(lengthOfLastWord(strs));
+        //String strs = "hello world";
+        int[] digits ={1,2,3};
+        System.out.println();
     }
 }
