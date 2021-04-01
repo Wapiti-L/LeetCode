@@ -251,10 +251,27 @@ public class Solution {
         newBinary = new StringBuffer(newBinary).reverse().toString();
         return newBinary;
     }
-    public static void main(String[] args) {
-        String a = "1010";
-        String b = "1011";
 
-        System.out.println( addBinary(a,b));
+    //实现sqrt()函数(二分法)
+    public static int mySqrt(int x){
+        int right = (x / 2) + 1;
+        int left = 0;
+        while (left < right){
+            int mid = (left + right) / 2 + 1;
+            if (Math.pow(mid,2) > x){
+                right = mid - 1;
+            }
+            else {
+                left = mid;
+            }
+        }
+        return left;
+
+    }
+    public static void main(String[] args) {
+        int x = 1;
+
+        System.out.println( mySqrt(x));
+        System.out.println(Math.sqrt(x));
     }
 }
