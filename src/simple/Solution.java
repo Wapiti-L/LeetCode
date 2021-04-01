@@ -228,10 +228,33 @@ public class Solution {
 
     }
 
-
+    //二进制求和
+    public static String addBinary(String a, String b){
+        /*return Integer.toBinaryString(
+                Integer.parseInt(a,2) + Integer.parseInt(b,2)
+        );*/
+        String newBinary = new String();
+        int l = (a.length() > b.length()) ? a.length():b.length();
+        int isCarry = 0;
+        for (int i = 0; i < l; i ++){
+            isCarry += i < a.length() ? a.charAt(a.length() - 1 - i) - '0': 0;
+//            System.out.println(a.charAt(a.length() - 1 - i));
+            isCarry += i < b.length() ? b.charAt(b.length() - 1 - i) - '0': 0;
+//            System.out.println(b.charAt(b.length() - 1 - i));
+//            System.out.println(isCarry + "carry");
+            newBinary = newBinary + (char)((isCarry % 2) + '0');
+            isCarry = isCarry / 2;
+        }
+        if (isCarry > 0){
+            newBinary += '1';
+        }
+        newBinary = new StringBuffer(newBinary).reverse().toString();
+        return newBinary;
+    }
     public static void main(String[] args) {
-        //String strs = "hello world";
-        int[] digits ={1,2,3};
-        System.out.println();
+        String a = "1010";
+        String b = "1011";
+
+        System.out.println( addBinary(a,b));
     }
 }
