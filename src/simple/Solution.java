@@ -7,6 +7,9 @@ import java.util.Stack;
  * @author Wapiti
  * @date 2020/3/19
  */
+
+
+
 public class Solution {
     //罗马数字转整数
     public static int romanToInt(String s) {
@@ -268,6 +271,24 @@ public class Solution {
         return left;
 
     }
+
+    //相同的树（递归）
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q == null){
+            return true;
+        }
+        else if(p == null || q == null){
+            return false;
+        }
+        else if(p.val != q.val){
+            return false;
+        }else{
+            return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+        }
+
+    }
+
+
     public static void main(String[] args) {
         int x = 1;
 
