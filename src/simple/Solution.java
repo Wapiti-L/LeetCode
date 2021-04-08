@@ -288,7 +288,22 @@ public class Solution {
 
     }
 
+    //对称二叉树
+    public boolean isSymmetric(TreeNode root) {
+        return judge(root,root);
+}
+        public  boolean  judge(TreeNode  l,TreeNode  r){
+                if(l  ==  null  &&  r  ==  null){
+                        return  true;
+                }
+                if(l  ==  null  ||  r  ==  null){
+                        return  false;
+                }
+                        return  (l.val  ==  r.val)  &&  judge(l.left,r.right)  &&  judge(r.left,l.right);
+                
+        }
 
+    //合并两个有序数组
     public static void main(String[] args) {
         int x = 1;
 
