@@ -406,6 +406,24 @@ public class Solution {
                 hasPathSum(root.right, targetSum - root.val );
     }
 
+    //环形链表
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null){
+            return false;
+        }
+        ListNode p = head;
+        ListNode q = head.next;
+        while(p != q){
+            if(q == null || q.next == null ){
+                return false;
+            }
+            p = p.next;
+            q = q.next.next;
+
+        }
+        return true;
+    }
+
 
         public static void main(String[] args) {
         int x = 1;
