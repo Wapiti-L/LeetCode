@@ -1,10 +1,7 @@
 package simple;
 
 import javax.crypto.MacSpi;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author Wapiti
@@ -424,6 +421,25 @@ public class Solution {
         return true;
     }
 
+    //相交链表
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Set<ListNode> hashSet = new HashSet<>();
+
+        ListNode p = headA;
+        //遍历A链表，存入哈希表
+        while (p != null){
+            hashSet.add(p);
+            p = p.next;
+        }
+        p = headB;
+        while (p != null){
+            if (hashSet.contains(p)){
+                return p;
+            }
+            p = p.next;
+        }
+        return null;
+    }
 
         public static void main(String[] args) {
         int x = 1;
