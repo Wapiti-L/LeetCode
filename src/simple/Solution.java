@@ -441,7 +441,23 @@ public class Solution {
         return null;
     }
 
-        public static void main(String[] args) {
+    //两数之和-有序数组
+    public int[] twoSum(int[] numbers, int target) {
+        int i = 0;
+        int j = numbers.length - 1;
+        while (numbers[i] + numbers[j] != target){
+            int temp = numbers[i] + numbers[j];
+            if (temp > target){
+                j --;
+            }else {
+                i ++;
+            }
+        }
+        return  new int[] {i,j};
+    }
+    
+
+    public static void main(String[] args) {
         int x = 1;
 
         System.out.println( mySqrt(x));
