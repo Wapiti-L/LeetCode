@@ -455,8 +455,19 @@ public class Solution {
         }
         return  new int[] {i,j};
     }
-    
 
+    //多数元素（Boyer-Moore 投票算法）
+    public int majoriElement(int[] nums){
+        int count = 0;
+        Integer candidate = null;
+        for (int num : nums){
+            if (count == 0){
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+        return candidate;
+    }
     public static void main(String[] args) {
         int x = 1;
 
