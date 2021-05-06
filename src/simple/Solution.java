@@ -457,7 +457,7 @@ public class Solution {
     }
 
     //多数元素（Boyer-Moore 投票算法）
-    public int majoriElement(int[] nums){
+    public int majorityElement(int[] nums){
         int count = 0;
         Integer candidate = null;
         for (int num : nums){
@@ -468,6 +468,18 @@ public class Solution {
         }
         return candidate;
     }
+
+    //Excel表列序号
+    public int titleToNumber(String columnTitle) {
+        int ans = 0;
+        for (int i = 0; i < columnTitle.length(); i ++){
+            int num = columnTitle.charAt(i) - 'A' + 1;
+            ans = ans * 26 + num;
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         int x = 1;
 
