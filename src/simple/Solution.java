@@ -422,7 +422,7 @@ public class Solution {
     }
 
     //相交链表
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public  ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         Set<ListNode> hashSet = new HashSet<>();
 
         ListNode p = headA;
@@ -511,15 +511,19 @@ public class Solution {
     //两数相加
     public ListNode addTwoNumbers(ListNode l1, ListNode l2){
         ListNode res = null, temp = null;
-        int carry = 0; //进位
+        int carry = 0;
+        //进位
         while(l1 != null || l2 != null){
+            //取值 为空则用0代替
             int n1 = l1 != null ? l1.val : 0;
-            int n2 = l2 != null ? l2.val : 0;//取值 为空则用0代替
+            int n2 = l2 != null ? l2.val : 0;
             int sum = n1 + n2 + carry;
             if(res == null){
-                res = temp = new ListNode(sum % 10);    //结果链表为空则从头赋值，
+                //结果链表为空则从头赋值
+                res = temp = new ListNode(sum % 10);
             }else{
-                temp.next = new ListNode(sum % 10);     //结果不空，temp滑动
+                //结果不空，temp滑动
+                temp.next = new ListNode(sum % 10);
                 temp = temp.next;
             }
             carry = sum / 10;
@@ -537,9 +541,22 @@ public class Solution {
         return res;
     }
 
+    //数组中重复的数字
+    public int findRepeatNumber(int[] nums) {
+        HashSet<Integer> dic = new HashSet<>();
+        for (int i : nums) {
+            if(!dic.contains(i)){
+                dic.add(i);
+            }else {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
     public static void main(String[] args) {
         int x = 1;
-
         System.out.println( mySqrt(x));
         System.out.println(Math.sqrt(x));
     }

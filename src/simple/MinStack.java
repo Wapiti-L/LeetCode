@@ -2,6 +2,8 @@ package simple;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
+
 import static java.lang.Math.*;
 
 /**
@@ -10,24 +12,28 @@ import static java.lang.Math.*;
  */
 public class MinStack {
     //元素栈
-    Deque<Integer> xStack;
+    Stack<Integer> xStack;
     //辅助栈
-    Deque<Integer> minStack;
+    Stack<Integer> minStack;
 
     public MinStack() {
-        xStack = new LinkedList<>();
-        minStack = new LinkedList<>();
-        //辅助栈压栈一个极大值
-        minStack.push(Integer.MAX_VALUE);
+        xStack = new Stack<>();
+        minStack = new Stack<>();
     }
     public void push(int x) {
         xStack.push(x);
         //当前最小值进入辅助栈
-        minStack.push(Math.min(minStack.peek(), x));
+        if (minStack.isEmpty() || x < minStack.peek()) {
+
+            minStack.push(x);
+        }
     }
     public void pop() {
-        xStack.pop();
-        minStack.pop();
+        //当出栈元素恰好为最小元素时，同时出栈
+        if (xStack.pop().equals(minStack.peek())){
+            minStack.pop();
+        }
+        System.out.println(xStack.peek()+minStack.peek());
     }
 
     public int top() {
