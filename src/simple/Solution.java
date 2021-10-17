@@ -1,8 +1,6 @@
 package simple;
 
-import javax.crypto.MacSpi;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * @author Wapiti
@@ -587,7 +585,39 @@ public class Solution {
             }
         }
         return res.toString();
+    }
 
+    //从尾到头打印链表（辅助栈）
+    ArrayList<Integer> list = new ArrayList<>();
+    public int[] reversePrint(ListNode head) {
+
+//        Stack<Integer> s = new Stack<>();
+//        while (head != null){
+//           s.push(head.val);
+//            head = head.next;
+//        }
+//        int[] array = new int[s.size()];
+//        for (int i = 0; i < array.length; i ++){
+//            array[i] = s.pop();
+//        }
+//
+
+        //递归
+        getList(head);
+        int[] array = new int[list.size()];
+        for (int i = 0; i < array.length; i ++){
+            array[i] = list.get(i);
+        }
+        return array;
+
+    }
+    //递归函数
+    public void getList(ListNode p){
+        if (p == null) {
+            return ;
+        }
+        getList(p.next);
+        list.add(p.val);
     }
 
 
