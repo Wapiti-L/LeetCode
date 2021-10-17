@@ -2,6 +2,7 @@ package simple;
 
 import javax.crypto.MacSpi;
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * @author Wapiti
@@ -570,10 +571,35 @@ public class Solution {
 
     }
 
+    //替换空格
+    public static String replaceSpace(String s) {
+        /*
+        s = s.replace(" ","%20");
+        return s;
+         */
+
+        StringBuilder res = new StringBuilder();
+        for (Character c : s.toCharArray()) {
+            if (c == ' '){
+                res.append("%20");
+            }else {
+                res.append(c);
+            }
+        }
+        return res.toString();
+
+    }
+
 
     public static void main(String[] args) {
         int x = 1;
-        System.out.println( mySqrt(x));
-        System.out.println(Math.sqrt(x));
+        String s = new String("we are happy");
+        System.out.println(replaceSpace(s));
+
+
+//        System.out.println( mySqrt(x));
+//        System.out.println(Math.sqrt(x));
     }
+
+
 }

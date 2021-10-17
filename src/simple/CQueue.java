@@ -31,6 +31,7 @@ public class CQueue {
         //b空a不空 全部入b栈
         while (!A.isEmpty()){
             B.addLast(A.removeLast());
+            B.pop();
         }
         return B.removeLast();
     }
