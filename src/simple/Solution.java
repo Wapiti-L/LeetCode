@@ -620,6 +620,31 @@ public class Solution {
         list.add(p.val);
     }
 
+    //前中序遍历重建二叉树
+    int[] preorder;
+    HashMap<Integer,Integer> dic = new HashMap<>();
+    public TreeNode buildTree(int[] preorder, int[] inorder){
+        this.preorder = preorder;
+        for (int i = 0; i < inorder.length; i++) {
+            dic.put(inorder[i], i);
+        }
+        return recur(0, 0, inorder.length - 1);
+    }
+    //递归
+    TreeNode recur(int root, int left, int right){
+        if (left > right){
+            return null;
+        }
+        //建立根节点
+        TreeNode node = new TreeNode(preorder[root]);
+        //划分左右子树
+        int i = dic.get(preorder[root]);
+        //建立左子树
+        node.left = recur(root + 1, left, i -1);
+        //建立右子树（i-left为左子树长度）
+        node.right = recur(root + i - left + 1, i + 1, right);
+        return node;
+    }
 
     public static void main(String[] args) {
         int x = 1;
