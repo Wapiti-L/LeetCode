@@ -646,6 +646,21 @@ public class Solution {
         return node;
     }
 
+    //动态规划求解斐波那契数列
+    public int fib(int n){
+        final int MOD = 1000000007;
+        if (n < 2){
+            return n;
+        }
+        int p = 0, q = 0, r = 1;
+        for (int i = 2; i <= n; ++i) {
+            p = q;
+            q = r; //暂存上一次计算结果
+            r = (r + p) % MOD;
+        }
+        return r;
+    }
+
     public static void main(String[] args) {
         int x = 1;
         String s = new String("we are happy");
