@@ -661,6 +661,17 @@ public class Solution {
         return r;
     }
 
+    //青蛙跳台阶
+    public int numWays(int n){
+        int p = 1, q = 1, r = 0;
+        for (int i = 0; i <= n; i++) {
+            p = q;
+            q = r;
+            r = (r + p) % 1000000007;
+        }
+        return r;
+    }
+
     public static void main(String[] args) {
         int x = 1;
         String s = new String("we are happy");
