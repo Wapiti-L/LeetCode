@@ -672,6 +672,22 @@ public class Solution {
         return r;
     }
 
+    //旋转数组的最小数字
+    public int minArray(int[] nums){
+        int i = 0, j = nums.length - 1;
+        while (i < j){
+            int mid = (i + j) / 2;
+            if (nums[mid] > nums[j]){
+                i = mid + 1;
+            } else if (nums[mid] < nums[j]){
+                j = mid;
+            } else {
+                j --;
+            }
+        }
+        return nums[i];
+    }
+
     public static void main(String[] args) {
         int x = 1;
         String s = new String("we are happy");
